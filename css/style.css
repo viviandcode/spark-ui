@@ -16,6 +16,12 @@
   transform: translate3d(-50%, -50%, 0);
   height: auto;
 }
+a{
+  transition: all 0.3s ease-in-out;
+}
+.text-color-black{
+  color: #000;
+}
 .text-color-white{
   color: #fff;
 }
@@ -27,13 +33,24 @@
 #index-nav a{
   color: #fff;
 }
+#index-nav a:hover{
+  text-decoration: none;
+}
+#index-nav{
+  margin-top: 5px;
+}
 #index-nav li{
+  display: inline-block;
+  margin: 0 12px;
   list-style: none;
 }
 .icon{
-  margin-bottom: 5px;
-  font-size: 23px;
+  font-size: 25px;
+}
+#index-nav a:hover .icon{
+  position: relative;
+  top: -3px;
 }
 .title{
-  font-size: 13px;
+  font-size: 12px;
 }
