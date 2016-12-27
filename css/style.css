@@ -1,6 +1,14 @@
 .full-height{
   height: 100vh;
 }
+.relative{
+  position: relative;
+}
+.x-center{
+  position: relative;;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
 .abs-center{
   position: absolute;
   top: 50%;
@@ -15,9 +23,17 @@
   background: #F3904F; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #F3904F , #3B4371); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #F3904F , #3B4371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
-.index-nav{
-  padding: 0 20px;
-  font-size: 25px;
+#index-nav a{
+  color: #fff;
+}
+#index-nav li{
+  list-style: none;
+}
+.icon{
+  margin-bottom: 5px;
+  font-size: 23px;
+}
+.title{
+  font-size: 13px;
 }
