@@ -3,6 +3,12 @@
 	src: url('../fonts/Pixel-Millennium.ttf');
 }
 /* GLOBAL	style */
+body{
+	height: 100vh;
+  background: #F3904F; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #F3904F , #3B4371); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #F3904F , #3B4371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .full-height{
   height: 100vh;
 }
@@ -34,12 +40,7 @@ a{
 	color: #fff;
 }
 /* INDEX STYLE */
-#header{
-  background: #F3904F; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #F3904F , #3B4371); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #F3904F , #3B4371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-#header h1{
+ .logo-text{
   margin-top: 10px;
   font-family: "Pixel-Millennium";
 }
@@ -62,4 +63,9 @@ a{
 }
 .title{
   font-size: 12px;
+}
+/* BLOG STYLE */
+#blog{
+	margin-top: 5vh;
+	min-height: 90vh;
 }
