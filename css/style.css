@@ -5,9 +5,9 @@
 /* RESET	style */
 body{
 	height: 100vh;
-  background: #F3904F; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #F3904F , #3B4371); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #F3904F , #3B4371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #F3904F;
+  background: -webkit-linear-gradient(to left, #F3904F , #3B4371);
+  background: linear-gradient(to left, #F3904F , #3B4371);
 }
 a{
   transition: all 0.3s ease-in-out;
@@ -71,22 +71,11 @@ ol, ul, li{
   font-size: 12px;
 }
 /* BLOG STYLE */
-#blog-nav{
+#nav{
 	margin-top: 20px;
-}
-#blog{
-	min-height: 90vh;
-}
-#blog .breadcrumb{
-	margin-top: 10px;
 }
 #blog .info span{
 	padding: 0 10px;
-}
-#blog .summary{
-	margin: 20px 0;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #ddd;
 }
 #blog p{
 	font-size: 16px;
@@ -95,9 +84,6 @@ ol, ul, li{
 	position: relative;;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
-}
-.blog-pager .pagination{
-	margin: 10px 0;
 }
 .loading{
 	margin: 20px 0;
