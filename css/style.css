@@ -67,9 +67,6 @@ ol, ul, li{
 .icon{
   font-size: 25px;
 }
-#index-nav a:hover .icon{
-	transform: translate3d(0, -5px, 0);
-}
 .title{
   font-size: 12px;
 }
@@ -93,6 +90,11 @@ ol, ul, li{
 }
 #blog p{
 	font-size: 16px;
+}
+#blog p img{
+	position: relative;;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
 }
 .blog-pager .pagination{
 	margin: 10px 0;
