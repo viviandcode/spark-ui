@@ -43,6 +43,9 @@ ol, ul, li{
 .text-color-ccc{
   color: #ccc;
 }
+.text-color-eee{
+  color: #eee;
+}
 .text-hover-color-white:hover{
 	color: #fff;
 }
@@ -74,18 +77,23 @@ ol, ul, li{
 #nav{
 	margin-top: 20px;
 }
-#blog .info span{
-	padding: 0 10px;
-}
-#blog p{
-	font-size: 16px;
-}
-#blog p img{
-	position: relative;;
-  left: 50%;
-  transform: translate3d(-50%, 0, 0);
-}
 .loading{
 	margin: 20px 0;
 	font-size: 18px;
+}
+
+.blog .info span{
+	padding: 0 10px;
+}
+.blog .headline img{
+	width: 100%;
+}
+.blog p img{
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
+.blog blockquote{
+	color: #ccc;
 }
