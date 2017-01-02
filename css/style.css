@@ -99,3 +99,7 @@ ol, ul, li{
 .blog-pager .pagination{
 	margin: 10px 0;
 }
+.loading{
+	margin: 20px 0;
+	font-size: 18px;
+}
