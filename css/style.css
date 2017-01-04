@@ -100,5 +100,8 @@ ol, ul, li{
 }
 /* MAP STYLE */
 #map{
-	height: 80vh;
+	height: 85vh;
+}
+.anchorBL{
+	display: none;
 }
