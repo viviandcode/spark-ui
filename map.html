@@ -72,50 +72,47 @@
 			// 百度地图API功能
 			var map = new BMap.Map("map");    // 创建Map实例
 			map.centerAndZoom(new BMap.Point(106.6045142761, 29.6883215871), 10);  // 初始化地图,设置中心点坐标和地图级别
-			//map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-			//map.setCurrentCity("重庆");          // 设置地图显示的城市 此项是必须设置的
+			map.setCurrentCity("重庆");          // 设置地图显示的城市 此项是必须设置的
 			map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 			map.setMapStyle({
 			  styleJson:[
 					{
-                    "featureType": "highway",
-                    "elementType": "geometry",
-                    "stylers": {
-                              "color": "#ffffff",
-                              "hue": "#ffffff",
-                              "weight": "1"
-                    }
-          },
+						"featureType": "highway",
+						"elementType": "geometry",
+						"stylers": {
+							"color": "#ffffff",
+							"hue": "#ffffff",
+							"weight": "1"
+						}
+					},
 					{
-                    "featureType": "subway",
-                    "elementType": "all",
-                    "stylers": {
-                              "visibility": "off"
-                    }
-          },
+						"featureType": "subway",
+						"elementType": "all",
+						"stylers": {
+							"visibility": "off"
+						}
+					},
 					{
-                    "featureType": "railway",
-                    "elementType": "all",
-                    "stylers": {
-                              "visibility": "off"
-                    }
-          },
+						"featureType": "railway",
+						"elementType": "all",
+						"stylers": {
+							"visibility": "off"
+						}
+					},
 					{
-                    "featureType": "poi",
-                    "elementType": "all",
-                    "stylers": {
-                              "visibility": "off"
-                    }
-          },
+						"featureType": "poi",
+						"elementType": "all",
+						"stylers": {
+							"visibility": "off"
+						}
+					},
 				]
 			});
 
 			//添加 MARK
-			function addMapOverlay(){
-	      var markers = [
-	        {content:"Mark",title:"Mark",imageOffset: {width:0,height:3},position:{lat:106.6045142761,lng:29.6883215871}}
-	      ];
-	    }
+			var point = new BMap.Point(106.6045142761, 29.6883215871);  
+			var marker = new BMap.Marker(point);        // 创建标注
+			map.addOverlay(marker);                     // 将标注添加到地图中
 		</script>
 	</body>
 </html>
