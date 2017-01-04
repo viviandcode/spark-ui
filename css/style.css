@@ -98,3 +98,7 @@ ol, ul, li{
 .blog blockquote{
 	color: #ccc;
 }
+/* MAP STYLE */
+#map{
+	height: 80vh;
+}
