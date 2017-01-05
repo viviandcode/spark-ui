@@ -105,3 +105,6 @@ ol, ul, li{
 .anchorBL{
 	display: none;
 }
+#map label{
+	max-width: 1024px;
+}
