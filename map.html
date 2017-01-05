@@ -68,10 +68,6 @@
 		<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jxgatw3PjSIfaimBHwrwiXzTwy05zTzC"></script>
-
-		<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
-		<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
-
 		<script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("map");                  // 创建Map实例
@@ -123,24 +119,24 @@
 
 			var points = [
 				{
-					"id":1,
-					"date":2017-02-21,
+					"id":0,
+					"date":"2017-02-21",
 					"title":"title1",
 					"local":"local1",
 					"lng":116.6045142761,
 					"lat":27.6883215871,
 				},
 				{
-					"id":2,
-					"date":2017-03-03,
+					"id":1,
+					"date":"2017-03-03",
 					"title":"title2",
 					"local":"local2",
 					"lng":106.6045142761,
 					"lat":29.6883215871,
 				},
 				{
-					"id":3,
-					"date":2017-04-03,
+					"id":2,
+					"date":"2017-04-03",
 					"title":"title3",
 					"local":"local3",
 					"lng":107.2045142761,
@@ -153,23 +149,30 @@
 				var point_array = points[i];
 				var point = new BMap.Point(point_array.lng, point_array.lat);
 				var marker = new BMap.Marker(point);
-				map.addOverlay(marker);
-				var label = new BMap.Label("<i class='fa fa-male' aria-hidden='true'></i> "+point_array.title,{offset:new BMap.Size(20,0)});
-				marker.setLabel(label);
 
 				var Content =
 				"<div>" +
 				"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>"+ point_array.title +"</h4>" +
 				"<img style='float:right;margin:4px' id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='139' height='104' title='"+ point_array.title +"'/>" +
-				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ point_array.local +"</p>" +
+				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ point_array.date +":"+ point_array.local +"</p>" +
 				"</div>";
-				var infoWindow = new BMap.InfoWindow(Content);  // 创建信息窗口对象
+
+				map.addOverlay(marker);
+
+				addInfoWindow(Content, marker);
+
+				var label = new BMap.Label("<i class='fa fa-male' aria-hidden='true'></i> "+point_array.title,{offset:new BMap.Size(20,0)});
+				marker.setLabel(label);
+			}
+
+			function addInfoWindow(content, marker){
+				var infoWindow = new BMap.InfoWindow(content);  // 创建信息窗口对象
 				marker.addEventListener("click", function(){
-				   this.openInfoWindow(infoWindow);
-				   //图片加载完毕重绘infowindow
-				   document.getElementById('imgDemo').onload = function (){
-					   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
-				   }
+					 this.openInfoWindow(infoWindow);
+					 //图片加载完毕重绘infowindow
+					 document.getElementById('imgDemo').onload = function (){
+						 infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+					 }
 				});
 			}
 		</script>
