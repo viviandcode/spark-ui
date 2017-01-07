@@ -8,6 +8,7 @@ body{
   background: #F3904F;
   background: -webkit-linear-gradient(to left, #F3904F , #3B4371);
   background: linear-gradient(to left, #F3904F , #3B4371);
+	font-family: "Helvetica Neue",Helvetica,"Microsoft Yahei",Arial,sans-serif
 }
 a{
   transition: all 0.3s ease-in-out;
@@ -77,6 +78,9 @@ ol, ul, li{
 /* BLOG STYLE */
 #nav{
 	margin-top: 20px;
+}
+#nav .navbar-brand{
+	font-size: 20px;
 }
 .loading{
 	margin: 20px 0;
