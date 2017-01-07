@@ -61,6 +61,12 @@
 			</nav>
 
 			<div class="panel panel-default">
+				<div class="row" id="map-nav">
+					<div class="col-md-12">
+						<a href="#" id="test" class="hook" lng="116.6045142761" lat="27.6883215871">test</a>
+						<a href="#" id="test2" class="hook" lng="107.2045142761" lat="29.6883215871">test2</a>
+					</div>
+				</div>
 				<div id="map" tabindex="0"></div>
 			</div>
 
@@ -72,12 +78,16 @@
 			// 百度地图API功能
 			var map = new BMap.Map("map");                  // 创建Map实例
 			map.centerAndZoom(new BMap.Point(106.6045142761, 29.6883215871), 10);  // 初始化地图,设置中心点坐标和地图级别
-			var geolocation = new BMap.Geolocation();       //根据浏览器定位
+
+			//根据浏览器定位
+			/*
+			var geolocation = new BMap.Geolocation();
 			geolocation.getCurrentPosition(function(r){
 				if(this.getStatus() == BMAP_STATUS_SUCCESS){
 					map.panTo(r.point);
 				}
 			},{enableHighAccuracy: true})
+			*/
 
 			map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 			map.enableContinuousZoom();    			 //启用地图惯性拖拽
@@ -117,7 +127,7 @@
 				]
 			});
 
-			var points = [
+			var points = [        //坐标点数据集合
 				{
 					"id":0,
 					"date":"2017-02-21",
@@ -165,6 +175,7 @@
 				marker.setLabel(label);
 			}
 
+			//添加信息窗体函数
 			function addInfoWindow(content, marker){
 				var infoWindow = new BMap.InfoWindow(content);  // 创建信息窗口对象
 				marker.addEventListener("click", function(){
@@ -174,6 +185,20 @@
 						 infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
 					 }
 				});
+			}
+
+			GoToMarker("#map-nav", 13);
+			//选择 #map-nav 下带坐标参数的链接，并绑定点击事件
+			function GoToMarker(WraperSelector , zoom) {
+				var markers = document.querySelectorAll(WraperSelector + " a.hook"); //querySelectorAll 返回非实时nodeList
+				for (var i = 0, count = markers.length; i < count; i++) {
+					marker = markers[i];
+					marker.addEventListener("click", function(){
+						var lng = this.getAttribute("lng");
+						var lat = this.getAttribute("lat");
+						map.centerAndZoom(new BMap.Point(lng, lat), zoom);
+					});
+				}
 			}
 		</script>
 	</body>
