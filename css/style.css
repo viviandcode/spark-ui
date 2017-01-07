@@ -112,3 +112,6 @@ ol, ul, li{
 #map label{
 	max-width: 1024px;
 }
+#map-nav .guider{
+	cursor: pointer;
+}
