@@ -47,6 +47,9 @@ ol, ul, li{
 .text-color-eee{
   color: #eee;
 }
+.text-color-333{
+  color: #333;
+}
 .text-hover-color-white:hover{
 	color: #fff;
 }
@@ -103,15 +106,41 @@ ol, ul, li{
 	color: #ccc;
 }
 /* MAP STYLE */
-#map{
+#map, #map-nav{
 	height: 85vh;
+}
+
+@media (max-width: 991px){
+	.map-nav-wraper{
+		display: none;
+	}
 }
 .anchorBL{
 	display: none;
 }
+/*解决 bootstrap 和百度地图 label 冲突*/
 #map label{
 	max-width: 1024px;
 }
+#map-nav .item{
+	padding: 10px 0;
+}
 #map-nav .guider{
+	display: inline-block;;
 	cursor: pointer;
+}
+.guider .icon{
+	height: 40px;
+}
+@media (max-width: 1199px){
+	.guider .icon{
+		display: none;
+	}
+}
+.guider time{
+	display: block;
+	font-size: 12px;
+}
+.guider:hover .icon, .guider:hover time{
+	color: #333;
 }
