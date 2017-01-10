@@ -194,7 +194,7 @@
 				var point = new BMap.Point(point_array.lng, point_array.lat);
 				var marker = new BMap.Marker(point);
 
-				var Content = PackageContent(point_array.title, point_array.date, point_array.local, "http://app.baidu.com/map/images/tiananmen.jpg");
+				var Content = PackageContent(point_array.title, point_array.date, point_array.local, "http://demo.viviandcode.com/images/logo.png");
 
 				map.addOverlay(marker);
 
@@ -225,7 +225,7 @@
 						var date = this.getAttribute("date");
 						var local = this.getAttribute("local");
 
-						var content = PackageContent(title, date, local, "http://app.baidu.com/map/images/tiananmen.jpg");
+						var content = PackageContent(title, date, local, "http://demo.viviandcode.com/images/logo.png");
 
 						var point = new BMap.Point(lng, lat);
 						addInfoWindow_for_Link(point, content)

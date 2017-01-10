@@ -115,6 +115,7 @@ ol, ul, li{
 		display: none;
 	}
 }
+/*不显示百度地图logo*/
 .anchorBL{
 	display: none;
 }
