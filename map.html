@@ -199,9 +199,6 @@
 				map.addOverlay(marker);
 
 				addInfoWindow(Content, marker);
-
-				var label = new BMap.Label("<i class='fa fa-male' aria-hidden='true'></i> "+point_array.title,{offset:new BMap.Size(20,0)});
-				marker.setLabel(label);
 			}
 
 			//添加信息窗体函数
@@ -210,7 +207,7 @@
 				marker.addEventListener("click", function(){
 					 this.openInfoWindow(infoWindow, {offset:new BMap.Size(0, -25)});  //绑定到marker的信息窗口其实自动偏移(0,-25)
 					 //图片加载完毕重绘infowindow
-					 document.getElementById('imgDemo').onload = function (){
+					 document.getElementById('img_infowindow').onload = function (){
 						 infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
 					 }
 				});
@@ -241,7 +238,7 @@
 			function addInfoWindow_for_Link(point, content) {
 				var infoWindow = new BMap.InfoWindow(content, {offset:new BMap.Size(0, -25)});
 				map.openInfoWindow(infoWindow,point);
-				document.getElementById('imgDemo').onload = function (){
+				document.getElementById('img_infowindow').onload = function (){
 					infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
 				}
 			}
@@ -251,7 +248,7 @@
 				return content =
 				"<div>" +
 				"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>"+ title +"</h4>" +
-				"<img style='float:right;margin:4px' id='imgDemo' src='"+ pic_url +"' width='139' height='104' title='"+ title +"'/>" +
+				"<img style='float:right;margin:4px' id='img_infowindow' src='"+ pic_url +"' width='139' height='104' title='"+ title +"'/>" +
 				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ date +":"+ local +"</p>" +
 				"</div>";
 			}
