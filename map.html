@@ -66,7 +66,7 @@
 						<div id="map-nav">
 
 								<div class="item clearfix">
-									<a class="guider" lng="116.6045142761" lat="27.6883215871">
+									<a class="guider" lng="116.6045142761" lat="27.6883215871" date="2017-02-21" title="title1" local="local1">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -78,7 +78,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider" lng="106.6045142761" lat="29.6883215871">
+									<a class="guider" lng="106.6045142761" lat="29.6883215871" date="2017-02-21" title="title2" local="local2">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -90,7 +90,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider" lng="107.2045142761" lat="29.6883215871">
+									<a class="guider" lng="107.2045142761" lat="29.6883215871" date="2017-02-21" title="title3" local="local3">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -124,7 +124,8 @@
 			map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 			map.enableContinuousZoom();    			 //启用地图惯性拖拽
 
-			map.setMapStyle({										 //地图风格设置
+			//地图风格设置
+			map.setMapStyle({
 			  styleJson:[
 					{
 						"featureType": "highway",
@@ -159,7 +160,8 @@
 				]
 			});
 
-			var points = [        //坐标点数据集合
+			//坐标点数据集合
+			var points = [
 				{
 					"id":0,
 					"date":"2017-02-21",
@@ -192,12 +194,7 @@
 				var point = new BMap.Point(point_array.lng, point_array.lat);
 				var marker = new BMap.Marker(point);
 
-				var Content =
-				"<div>" +
-				"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>"+ point_array.title +"</h4>" +
-				"<img style='float:right;margin:4px' id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='139' height='104' title='"+ point_array.title +"'/>" +
-				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ point_array.date +":"+ point_array.local +"</p>" +
-				"</div>";
+				var Content = PackageContent(point_array.title, point_array.date, point_array.local, "http://app.baidu.com/map/images/tiananmen.jpg");
 
 				map.addOverlay(marker);
 
@@ -211,7 +208,7 @@
 			function addInfoWindow(content, marker){
 				var infoWindow = new BMap.InfoWindow(content);  // 创建信息窗口对象
 				marker.addEventListener("click", function(){
-					 this.openInfoWindow(infoWindow);
+					 this.openInfoWindow(infoWindow, {offset:new BMap.Size(0, -25)});  //绑定到marker的信息窗口其实自动偏移(0,-25)
 					 //图片加载完毕重绘infowindow
 					 document.getElementById('imgDemo').onload = function (){
 						 infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
@@ -219,7 +216,7 @@
 				});
 			}
 
-			GoToMarker("#map-nav", 13);
+			GoToMarker("#map-nav", 10);
 			//选择 #map-nav 下带坐标参数的链接，并绑定点击事件
 			function GoToMarker(WraperSelector , zoom) {
 				var markers = document.querySelectorAll(WraperSelector + " a.guider"); //querySelectorAll 返回非实时nodeList
@@ -227,9 +224,36 @@
 					markers[i].addEventListener("click", function(){
 						var lng = this.getAttribute("lng");
 						var lat = this.getAttribute("lat");
-						map.centerAndZoom(new BMap.Point(lng, lat), zoom);
+						var title = this.getAttribute("title");
+						var date = this.getAttribute("date");
+						var local = this.getAttribute("local");
+
+						var content = PackageContent(title, date, local, "http://app.baidu.com/map/images/tiananmen.jpg");
+
+						var point = new BMap.Point(lng, lat);
+						addInfoWindow_for_Link(point, content)
+
+						map.centerAndZoom(point, zoom);
 					});
 				}
+			}
+
+			function addInfoWindow_for_Link(point, content) {
+				var infoWindow = new BMap.InfoWindow(content, {offset:new BMap.Size(0, -25)});
+				map.openInfoWindow(infoWindow,point);
+				document.getElementById('imgDemo').onload = function (){
+					infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+				}
+			}
+
+			//生成信息窗口html
+			function PackageContent(title, date, local, pic_url) {
+				return content =
+				"<div>" +
+				"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>"+ title +"</h4>" +
+				"<img style='float:right;margin:4px' id='imgDemo' src='"+ pic_url +"' width='139' height='104' title='"+ title +"'/>" +
+				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ date +":"+ local +"</p>" +
+				"</div>";
 			}
 		</script>
 	</body>
