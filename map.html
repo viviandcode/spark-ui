@@ -11,8 +11,6 @@
 		<link rel="icon" href="images/favicon.ico" mce_href="images/favicon.ico" type="image/x-icon">
 
 		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css"  media="all">
-		<link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
-		<link rel="stylesheet" href="css/style.css" type="text/css"  media="all">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,6 +19,8 @@
 			<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css"  media="all">
 		<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" type="text/css"  media="all">
 	</head>
 	<body>
@@ -67,7 +67,7 @@
 						<div id="map-nav">
 
 								<div class="item clearfix">
-									<a class="guider" lng="116.6045142761" lat="27.6883215871" date="2017-02-21" title="title1" local="local1">
+									<a id="marker-0" class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -79,7 +79,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider" lng="106.6045142761" lat="29.6883215871" date="2017-02-21" title="title2" local="local2">
+									<a id="marker-1" class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -91,7 +91,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider" lng="107.2045142761" lat="29.6883215871" date="2017-02-21" title="title3" local="local3">
+									<a id="marker-2" class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -108,7 +108,7 @@
 
 				<div class="col-md-10">
 					<div class="panel panel-default">
-						<div id="map"><div id="popup"></div></div>
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
@@ -116,103 +116,68 @@
 		</div>
 		<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="https://openlayers.org/en/v3.20.1/build/ol.js" type="text/javascript"></script>
+		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 		<script>
-      var rome = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([12.5, 41.9])),
-				id: 1,
-        html: 'Null Island <a href="http://baidu.com/">link</a>',
-      });
+			var points = [
+				{
+					"date":"2017-03-21",
+					"title":"title4",
+					"local":"local4",
+					"lng":56.6045142761,
+					"lat":27.6883215871,
+				},
+				{
+					"date":"2017-03-03",
+					"title":"title3",
+					"local":"local3",
+					"lng":56.6045142761,
+					"lat":29.6883215871,
+				},
+				{
+					"date":"2017-02-03",
+					"title":"title2",
+					"local":"local2",
+					"lng":57.2045142761,
+					"lat":29.6883215871,
+				},
+				{
+					"date":"2017-01-03",
+					"title":"title1",
+					"local":"local1",
+					"lng":57.2045142761,
+					"lat":29.9883215871,
+				},
+			];
+			var map = L.map('map');
 
-			var iconFeature2 = new ol.Feature({
-				geometry: new ol.geom.Point(ol.proj.fromLonLat([13.8, 41.9])),
-				id: 2,
-				html: 'Null22',
-			});
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
 
-      var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-          anchor: [0.5, 46],
-          anchorXUnits: 'fraction',
-          anchorYUnits: 'pixels',
-          src: 'https://openlayers.org/en/v3.20.1/examples/data/icon.png'
-        }))
-      });
+			var markers = [];
+			//生成标记点
+			for (var i = 0, count = points.length; i < count; i ++) {
+				var point_array = points[i];
+				var temp = L.marker([point_array.lng, point_array.lat]).addTo(map)
+				    .bindPopup('<a href="#">'+ point_array.title +'</a> '+ point_array.local +'.<br> Easily customizable.');
 
-			rome.setStyle(iconStyle);
-      iconFeature2.setStyle(iconStyle);
+				//最新marker默认弹出
+				if(0 === i){
+					map.setView([point_array.lng, point_array.lat], 8)
+					temp.openPopup();
+				}
+				markers.push(temp);
+			}
 
-      var vectorSource = new ol.source.Vector({
-        features: [rome, iconFeature2]
-      });
-
-      var vectorLayer = new ol.layer.Vector({
-        source: vectorSource
-      });
-
-      var rasterLayer = new ol.layer.Tile({
-        source: new ol.source.TileJSON({
-          url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
-          crossOrigin: ''
-        })
-      });
-
-			var simpleLayer = new ol.layer.Tile({
-				 source: new ol.source.OSM()
-			 })
-
-      var map = new ol.Map({
-				layers: [simpleLayer, vectorLayer],
-        target: document.getElementById('map'),
-        view: new ol.View({
-          center: ol.proj.fromLonLat([12.5, 41.9]),
-          zoom: 5
-        })
-      });
-
-      var element = document.getElementById('popup');
-
-      var popup = new ol.Overlay({
-        element: element,
-        positioning: 'bottom-center',
-        stopEvent: false,
-        offset: [0, -50]
-      });
-      map.addOverlay(popup);
-
-      // display popup on click
-      map.on('click', function(evt) {
-        var feature = map.forEachFeatureAtPixel(evt.pixel,
-        function(feature) {
-          return feature;
-        });
-
-        if (feature) {
-          var coordinates = feature.getGeometry().getCoordinates();
-          popup.setPosition(coordinates);
-          $(element).popover({
-            'placement': 'top',
-            'html': true,
-            'content': feature.get('html')
-          });
-          $(element).popover('show');
-        } else {
-          $(element).popover('destroy');
-        }
-      });
-
-      // change mouse cursor when over marker
-      map.on('pointermove', function(e) {
-				/*
-        if (e.dragging) {
-          $(element).popover('destroy');
-          return;
-        }
-				*/
-        var pixel = map.getEventPixel(e.originalEvent);
-        var hit = map.hasFeatureAtPixel(pixel);
-        map.getTarget().style.cursor = hit ? 'pointer' : '';
-      });
+			var links = document.querySelectorAll("#map-nav a.guider");
+			for (var i = 0, count = links.length; i < count; i++) {
+				AddLinkAction(i);
+			}
+			function AddLinkAction(i){
+				links[i].addEventListener("click", function(){
+					markers[i].openPopup();
+				});
+			}
     </script>
 	</body>
 </html>
