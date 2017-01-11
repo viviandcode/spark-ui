@@ -115,13 +115,6 @@ ol, ul, li{
 		display: none;
 	}
 }
-.anchorBL{
-	display: none;
-}
-/*解决 bootstrap 和百度地图 label 冲突*/
-#map label{
-	max-width: 1024px;
-}
 #map-nav, #map-nav .item{
 	padding: 10px 0;
 }
