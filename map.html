@@ -67,7 +67,7 @@
 						<div id="map-nav">
 
 								<div class="item clearfix">
-									<a id="marker-0" class="guider">
+									<a class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -79,7 +79,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a id="marker-1" class="guider">
+									<a class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -91,7 +91,7 @@
 								</div>
 
 								<div class="item clearfix">
-									<a id="marker-2" class="guider">
+									<a class="guider">
 										<div class="col-xs-3 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
@@ -154,6 +154,13 @@
 			    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(map);
 
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			    maxZoom: 18,
+			    id: 'your.mapbox.project.id',
+			    accessToken: 'your.mapbox.public.access.token'
+			}).addTo(map);
+
 			var markers = [];
 			//生成标记点
 			for (var i = 0, count = points.length; i < count; i ++) {
@@ -161,7 +168,7 @@
 				var temp = L.marker([point_array.lng, point_array.lat]).addTo(map)
 				    .bindPopup('<a href="#">'+ point_array.title +'</a> '+ point_array.local +'.<br> Easily customizable.');
 
-				//最新marker默认弹出
+				//最新marker pop默认弹出
 				if(0 === i){
 					map.setView([point_array.lng, point_array.lat], 8)
 					temp.openPopup();
