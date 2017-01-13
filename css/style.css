@@ -69,7 +69,8 @@ ol, ul, li{
 }
 #index-nav li{
   display: inline-block;
-  margin: 0 12px;
+  margin: 0px 5px;
+  width: 50px;
   list-style: none;
 }
 .icon{
