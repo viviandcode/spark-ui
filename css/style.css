@@ -90,7 +90,6 @@ ol, ul, li{
 	margin: 20px 0;
 	font-size: 18px;
 }
-
 .blog .info span{
 	padding: 0 10px;
 }
@@ -107,10 +106,9 @@ ol, ul, li{
 	color: #ccc;
 }
 /* MAP STYLE */
-#map, #map-nav{
+#map{
 	height: 85vh;
 }
-
 @media (max-width: 991px){
 	.map-nav-wraper{
 		display: none;
@@ -118,6 +116,9 @@ ol, ul, li{
 }
 #map-nav, #map-nav .item{
 	padding: 10px 0;
+}
+.item-more{
+	height: 100%;
 }
 #map-nav .guider{
 	display: inline-block;;
