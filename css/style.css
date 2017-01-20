@@ -92,10 +92,7 @@ ol, ul, li{
   font-size: 12px;
 }
 /* BLOG STYLE */
-#nav{
-	margin-top: 20px;
-}
-#nav .navbar-brand{
+.navbar-brand{
 	font-size: 20px;
 }
 .loading{
