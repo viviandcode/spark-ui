@@ -23,155 +23,161 @@
 		<link rel="stylesheet" href="css/style.css" type="text/css"  media="all">
 		<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" type="text/css"  media="all">
 	</head>
-	<body>
-		<div class="container">
-			<nav class="navbar navbar-default" role="navigation" id="nav">
-			  <div class="container-fluid">
-			    <!-- Brand and toggle get grouped for better mobile display -->
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      <a class="navbar-brand pixel-font" href="index.html">Pixel Spark</a>
-			    </div>
-			    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="main-menu">
-			      <ul class="nav navbar-nav navbar-right">
-							<li><a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
-			        <li><a href="blog-list.html"><i class="fa fa-pencil" aria-hidden="true"></i> Blog</a></li>
-							<li class="active"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Marker</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <span class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Blog</a></li>
-									<li class="divider"></li>
-									<li><a href="#">膜蛤</a></li>
-									<li><a href="#">续一秒</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Marker</a></li>
-									<li><a href="#">Code</a></li>
-								</ul>
-							</li>
-			      </ul>
-			    </div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
+	<body class="marker">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand pixel-font" href="index.html">Pixel Spark</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="main-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Github <i class="fa fa-github" aria-hidden="true"></i></a></li>
+						<li><a href="#">Linkedin <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+						<li><a href="blog-list.html">Stuff <i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+						<li class="active"><a href="#">Marker <i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Blog</a></li>
+								<li class="divider"></li>
+								<li><a href="#">膜蛤</a></li>
+								<li><a href="#">续一秒</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Marker</a></li>
+								<li><a href="#">Code</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 
-			<div class="row">
-				<div class="col-md-2 map-nav-wraper">
-					<div class="panel panel-default">
+		<div class="main container-fluid height-100per">
+			<div class="row height-100per">
+				<div class="col-md-5 map-nav-wraper">
+					<div class="row">
 						<div id="map-nav">
-
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing1</span>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Photo of Chongqing Hongyadong</span>
 											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Hongyadong in Chongqing, Had taken lots of photos of this beautiful building!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Shenmegui2</span>
-											<time class="text-color-ccc text-nowrap">Mar. 22nd 2017</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Visited Chongqing Hongyadong</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Hongyadong in Chongqing, Had taken lots of photos of this beautiful building!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing3</span>
-											<time class="text-color-ccc text-nowrap">Jan. 21st 2017</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Photo of Shangli in Chengdu</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Shangli in Chengdu, Had taken lots of photos of these beautiful buildings!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing4</span>
-											<time class="text-color-ccc text-nowrap">Dec. 23rd 2016</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Visited Chongqing Ciqikou</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Ciqikou in Chongqing, Had taken lots of photos of these beautiful buildings!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing4</span>
-											<time class="text-color-ccc text-nowrap">Dec. 23rd 2016</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Photo of Dali in Yunnan</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Dali in Yunnan, Had taken many photos of these beautiful views!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing4</span>
-											<time class="text-color-ccc text-nowrap">Dec. 23rd 2016</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Visited Fenghuang in Hunan</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Fenghuang in Hunan, meet so many interested people here!</p>
 										</div>
 									</a>
 								</div>
 
 								<div class="item clearfix">
-									<a class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
+									<a class="guider clearfix">
+										<div class="col-xs-1 icon text-center text-color-ccc">
 											<i class="fa fa-map-marker" aria-hidden="true"></i>
 										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">Chongqing4</span>
-											<time class="text-color-ccc text-nowrap">Dec. 23rd 2016</time>
+										<div class="col-xs-11">
+											<span class="title text-color-333">Photo of Fenghuang in Hunan</span>
+											<time class="text-color-ccc text-nowrap">May. 21st 2017</time>
+											<p class="text-color-333">Visited Fenghuang in Hunan, meet so many interested people here!</p>
 										</div>
 									</a>
 								</div>
 
-								<div class="item clearfix">
-									<a href="#" class="guider">
-										<div class="col-xs-3 icon text-center text-color-ccc">
-											<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-										</div>
-										<div class="col-xs-9">
-											<span class="text-color-333">View All</span>
-											<time class="text-color-ccc text-nowrap">Show all markers</time>
-										</div>
-									</a>
-								</div>
+								<nav>
+								  <ul class="pagination x-center">
+								    <li class="disabled"><a href="#">&laquo;</a></li>
+								    <li class="active"><a href="#">1</a></li>
+								    <li><a href="#">2</a></li>
+								    <li><a href="#">3</a></li>
+								    <li><a href="#">4</a></li>
+								    <li><a href="#">5</a></li>
+								    <li><a href="#">&raquo;</a></li>
+								  </ul>
+								</nav>
+
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-10">
-					<div class="panel panel-default">
+				<div class="col-md-7 height-100vh" id="map-wraper">
+					<div class="row height-100per">
 						<div id="map"></div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -257,7 +263,7 @@
 
 				//最新marker pop默认弹出
 				if(0 === i){
-					map.setView([point_array.lng, point_array.lat], 8)
+					map.setView([point_array.lng, point_array.lat], 7)
 					temp.openPopup();
 				}
 				markers.push(temp);
