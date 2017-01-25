@@ -59,6 +59,9 @@ ol, ul, li{
 .text-hover-color-white:hover{
 	color: #fff;
 }
+.bg-color-white{
+	background-color: #fff;
+}
 .height-100per{
 	height: 100%;
 }
@@ -70,6 +73,7 @@ ol, ul, li{
 }
 .main-wrapper{
 	padding-top: 50px;
+	font-size: 16px;
 	font-weight: 300;
 }
 .navbar-brand{
@@ -99,9 +103,6 @@ ol, ul, li{
   font-size: 12px;
 }
 /* BLOG LIST STYLE */
-.blog-list{
-	background-color: #fff;
-}
 .item{
 	padding: 25px 25px 0;
 }
@@ -136,6 +137,12 @@ ol, ul, li{
 	font-size: 18px;
 }
 /* BLOG CONTENT STYLE */
+.blog{
+	padding: 15px;
+}
+.blog h3{
+	font-weight: 300;
+}
 .blog .info span{
 	padding: 0 10px;
 }
