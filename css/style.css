@@ -8,10 +8,13 @@ body{
   background: #F3904F;
   background: -webkit-linear-gradient(to left, #F3904F , #3B4371);
   background: linear-gradient(to left, #F3904F , #3B4371);
-	font-family: "Helvetica Neue",Helvetica,"Microsoft Yahei",Arial,sans-serif
+	font-family: "Helvetica Neue",Helvetica,"-apple-system","Microsoft Yahei",Arial,sans-serif;
 }
 a, a *{
   transition: all 0.3s ease-in-out;
+}
+a:hover{
+	text-decoration: none;
 }
 a:focus{
 	outline: 0;
@@ -67,6 +70,10 @@ ol, ul, li{
 }
 .main-wrapper{
 	padding-top: 50px;
+	font-weight: 300;
+}
+.navbar-brand{
+	font-size: 20px;
 }
 /* INDEX STYLE */
  .logo-text{
@@ -92,14 +99,34 @@ ol, ul, li{
   font-size: 12px;
 }
 /* BLOG LIST STYLE */
-.navbar-brand{
-	font-size: 20px;
-}
 .blog-list{
 	background-color: #fff;
 }
 .item{
-	padding-top: 25px;
+	padding: 25px 25px 0;
+}
+.blog-list .caption{
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+.blog-list .head{
+	margin-bottom: 25px;
+}
+.blog-list .head .title a{
+	font-size: 23px;
+	font-weight: 300;
+	color: #333;
+}
+.blog-list .head .title a:hover{
+	color:#2479CC;
+}
+.blog-list .head time{
+	padding-top: 5px;
+	font-size: 13px;
+}
+.item p{
+	padding-bottom: 5px;
+	font-size: 16px;
 }
 .loading{
 	margin: 20px 0;
