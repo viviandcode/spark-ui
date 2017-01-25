@@ -105,6 +105,13 @@ ol, ul, li{
 .item{
 	padding: 25px 25px 0;
 }
+.item p{
+	padding-bottom: 5px;
+	font-size: 16px;
+}
+.item p a:hover{
+	text-decoration: underline;
+}
 .blog-list .caption{
 	padding-bottom: 20px;
 	border-bottom: 1px solid #ddd;
@@ -124,12 +131,8 @@ ol, ul, li{
 	padding-top: 5px;
 	font-size: 13px;
 }
-.item p{
-	padding-bottom: 5px;
-	font-size: 16px;
-}
 .loading{
-	margin: 20px 0;
+	margin: 20px 0 45px;
 	font-size: 18px;
 }
 /* BLOG CONTENT STYLE */
