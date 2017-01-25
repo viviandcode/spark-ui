@@ -56,17 +56,17 @@ ol, ul, li{
 .text-hover-color-white:hover{
 	color: #fff;
 }
-.pixel-font{
-	font-family: "Pixel-Millennium";
-}
-.main{
-	padding-top: 50px;
-}
 .height-100per{
 	height: 100%;
 }
 .height-100vh{
 	height: 100vh;
+}
+.pixel-font{
+	font-family: "Pixel-Millennium";
+}
+.main-wrapper{
+	padding-top: 50px;
 }
 /* INDEX STYLE */
  .logo-text{
@@ -91,14 +91,21 @@ ol, ul, li{
 .title{
   font-size: 12px;
 }
-/* BLOG STYLE */
+/* BLOG LIST STYLE */
 .navbar-brand{
 	font-size: 20px;
+}
+.blog-list{
+	background-color: #fff;
+}
+.item{
+	padding-top: 25px;
 }
 .loading{
 	margin: 20px 0;
 	font-size: 18px;
 }
+/* BLOG CONTENT STYLE */
 .blog .info span{
 	padding: 0 10px;
 }
