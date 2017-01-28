@@ -5,10 +5,13 @@
 /* RESET	style */
 body{
 	height: 100vh;
-  background: #F3904F;
+	background-color: #fff;
+	font-family: "Helvetica Neue",Helvetica,"-apple-system","Microsoft Yahei",Arial,sans-serif;
+}
+.color-bg{
+	background: #F3904F;
   background: -webkit-linear-gradient(to left, #F3904F , #3B4371);
   background: linear-gradient(to left, #F3904F , #3B4371);
-	font-family: "Helvetica Neue",Helvetica,"-apple-system","Microsoft Yahei",Arial,sans-serif;
 }
 a, a *{
   transition: all 0.3s ease-in-out;
@@ -67,6 +70,9 @@ ol, ul, li{
 }
 .height-100vh{
 	height: 100vh;
+}
+.overflow-y-hide{
+	overflow-y: hidden;
 }
 .pixel-font{
 	font-family: "Pixel-Millennium";
@@ -159,9 +165,6 @@ ol, ul, li{
 	color: #ccc;
 }
 /* MARKER STYLE */
-.marker{
-	overflow-y: hidden;
-}
 .map-nav-wraper{
 	height: 100%;
 	overflow-y: auto;
