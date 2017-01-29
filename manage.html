@@ -39,16 +39,16 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i> Status</a></li>
-						<li><a href="#"><i class="fa fa-pie-chart" aria-hidden="true"></i> Statistics</a></li>
-						<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Config</a></li>
+						<li class="active"><a href="#">Status <i class="fa fa-tachometer" aria-hidden="true"></i></a></li>
+						<li><a href="#">Statistics <i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+						<li><a href="#">Config <i class="fa fa-cog" aria-hidden="true"></i></a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i> Add <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Add <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Tag</a></li>
+								<li><a href="#">Category</a></li>
 								<li class="divider"></li>
-								<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Marker</a></li>
-								<li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Blog</a></li>
+								<li><a href="#">Marker</a></li>
+								<li><a href="#">Blog</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -66,9 +66,55 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 
-		<div class="container">
+		<div class="main-wrapper ontainer-fluid height-100per">
+			<canvas id="myChart" class="width-100per height-100per"></canvas>
 		</div>
 		<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="http://cdn.bootcss.com/Chart.js/2.4.0/Chart.min.js"></script>
+		<script>
+			var data = {
+		    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+		    datasets: [
+	        {
+	            label: "My First dataset",
+	            fill: false,
+	            lineTension: 0.1,
+	            backgroundColor: "rgba(75,192,192,0.4)",
+	            borderColor: "rgba(75,192,192,1)",
+	            borderCapStyle: 'butt',
+	            borderDash: [],
+	            borderDashOffset: 0.0,
+	            borderJoinStyle: 'miter',
+	            pointBorderColor: "rgba(75,192,192,1)",
+	            pointBackgroundColor: "#fff",
+	            pointBorderWidth: 1,
+	            pointHoverRadius: 5,
+	            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+	            pointHoverBorderColor: "rgba(220,220,220,1)",
+	            pointHoverBorderWidth: 2,
+	            pointRadius: 1,
+	            pointHitRadius: 10,
+	            data: [65, 59, 80, 81, 56, 55, 40],
+	            spanGaps: false,
+	        }
+	    ]
+		};
+		var options = {
+				scales: {
+						xAxes: [{
+								//display: false
+						}]
+				}
+		};
+
+		var ctx = $("#myChart");
+		var myLineChart = new Chart(ctx, {
+		    type: 'line',
+		    data: data,
+		    options: options
+		});
+
+		</script>
 	</body>
 </html>
