@@ -44,6 +44,9 @@ ol, ul, li{
 .font-weight-300{
 	font-weight: 300;
 }
+.font-weight-600{
+	font-weight: 600;
+}
 .text-color-black{
   color: #000;
 }
@@ -213,4 +216,34 @@ ol, ul, li{
 }
 #map{
 	height: 100%;
+}
+/* MANAGE */
+.breadcrumb{
+	font-size: 13px;
+}
+.manage-card{
+	padding: 15px;
+	margin: 20px 0;
+	border: 1px solid #eee;
+	border-left-color: #00a8ff;
+	border-left-width: 5px;
+	font-size: 18px;
+}
+.manage-card label{
+	font-size: 20px;
+}
+.manage-card label span{
+	padding-left: 10px;
+	color: #00a8ff;
+}
+.manage-card .data{
+	color: #00a8ff;
+	font-size: 45px;
+}
+.manage-card p{
+	font-size: 14px;
+}
+.manage-card .info{
+	font-size: 12px;
+	color: #ccc;
 }

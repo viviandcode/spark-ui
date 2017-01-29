@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+		<title>Manage - Pixel Spark</title>
+		<meta name="keywords" content="key words">
+		<meta name="description" content="Pixel Spark">
+		<link rel="icon" href="images/favicon.ico" mce_href="images/favicon.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css"  media="all">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css"  media="all">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" type="text/css"  media="all">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand pixel-font" href="#">Pixel Spark</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="main-menu">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Statistics <i class="fa fa-pie-chart" aria-hidden="true"></i></a></li>
+						<li><a href="#">Config <i class="fa fa-cog" aria-hidden="true"></i></a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">User <i class="fa fa-user" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Manage</a></li>
+								<li><a href="#">Add</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tag <i class="fa fa-tag" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Manage</a></li>
+								<li><a href="#">Add</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Marker <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Manage</a></li>
+								<li><a href="#">Add</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Stuff <i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Manage</a></li>
+								<li><a href="#">Add</a></li>
+							</ul>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Information</a></li>
+								<li><a href="#">Sign out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
+		<div class="main-wrapper container-fluid height-100per font-weight-300">
+				<div class="row">
+					<ol class="breadcrumb">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">Library</a></li>
+					  <li class="active">Data</li>
+					</ol>
+				</div>
+				<div class="row masonry">
+
+					<div class="col-sm-6 col-md-4 item">
+						<div class="manage-card">
+							<label class="text-color-ccc">Total Views</label>
+							<p class="data font-weight-600">875</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 item">
+						<div class="manage-card">
+							<label class="text-color-ccc">Weekly Views</label>
+							<p class="data font-weight-600">175</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 item">
+						<div class="manage-card">
+							<label class="text-color-ccc">Weekly Top View <span>57</span></label>
+							<h4><a href="#">任何事，也要按照香港的基本法</a></h4>
+							<p class="info">Aug 13, 2017</p>
+							<p class="summary">任何事，也要按照香港的基本法，按照选举法来进行。刚才你问我，我可以回答一句「无可奉告」，但是你们也不高兴，我怎么办？我讲的意思不是我要钦定。你问我支持不支持，我说支持。[...]</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 item">
+						<div class="manage-card">
+							<label class="text-color-ccc">Weekly Summary</label>
+							<canvas id="summary" class="width-100per height-100per"></canvas>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 item">
+						<div class="manage-card">
+							<label class="text-color-ccc">Weekly Compare</label>
+							<canvas id="compare" class="width-100per height-100per"></canvas>
+						</div>
+					</div>
+
+				</div>
+		</div>
+		<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="http://cdn.bootcss.com/Chart.js/2.4.0/Chart.min.js"></script>
+		<script>
+				var summary_data = {
+			    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+			    datasets: [
+		        {
+		            label: "Daily view of this week",
+		            //lineTension: 0.1,
+		            backgroundColor: "rgba(75,192,192,0.4)",
+		            borderColor: "#00a8ff",
+		            //borderDashOffset: 0.0,
+		            pointBorderColor: "#00a8ff",
+		            pointBackgroundColor: "#fff",
+		            pointBorderWidth: 2,
+		            pointHoverRadius: 5,
+		            pointHoverBackgroundColor: "#fff",
+		            pointHoverBorderColor: "#00a8ff",
+		            pointHoverBorderWidth: 2,
+		            pointRadius: 1,
+		            pointHitRadius: 10,
+								backgroundColor: "rgba(0,168,255,0.7)",
+		            data: [65, 59, 80, 81, 56, 55, 40],
+		        }
+			    ]
+				};
+
+				var chart_summary = $("#summary");
+				var summary = new Chart(chart_summary, {
+				    type: 'line',
+				    data: summary_data,
+				    //options: options
+				});
+
+				var compare_data = {
+					labels: ["Week - 3", "Week - 2", "Last Week", "This Week"],
+					datasets: [
+						{
+								label: "Daily view of this week",
+								//lineTension: 0.1,
+								backgroundColor: "rgba(75,192,192,0.4)",
+								borderColor: "#00a8ff",
+								//borderDashOffset: 0.0,
+								pointBorderColor: "#00a8ff",
+								pointBackgroundColor: "#fff",
+								pointBorderWidth: 2,
+								pointHoverRadius: 5,
+								pointHoverBackgroundColor: "#fff",
+								pointHoverBorderColor: "#00a8ff",
+								pointHoverBorderWidth: 2,
+								pointRadius: 1,
+								pointHitRadius: 10,
+								backgroundColor: "rgba(0,168,255,0.7)",
+								data: [177, 165, 159, 180],
+						}
+					]
+				};
+
+				var chart_compare = $("#compare");
+				var summary = new Chart(chart_compare, {
+						type: 'bar',
+						data: compare_data,
+						//options: options
+				});
+		</script>
+
+		<script src="http://cdn.bootcss.com/masonry/4.1.1/masonry.pkgd.js"></script>
+		<script src="http://cdn.bootcss.com/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+		<script>
+			$('.masonry').imagesLoaded(function() {
+				$('.masonry').masonry({
+					itemSelector: '.item'
+				});
+			});
+		</script>
+	</body>
+</html>
