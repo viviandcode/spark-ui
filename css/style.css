@@ -221,9 +221,11 @@ ol, ul, li{
 .breadcrumb{
 	font-size: 13px;
 }
+.masonry-item{
+	margin: 15px 0;
+}
 .manage-card{
 	padding: 15px;
-	margin: 20px 0;
 	border: 1px solid #eee;
 	border-left-color: #00a8ff;
 	border-left-width: 5px;
